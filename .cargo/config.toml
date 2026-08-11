@@ -1,0 +1,13 @@
+[target.'cfg(all(target_arch = "arm", target_os = "none"))']
+# replace  STM32F407VG with your chip as listed in `probe-rs chip list`
+runner = "probe-rs run --connect-under-reset --chip STM32F446RE"
+
+[build]
+target = "thumbv7em-none-eabihf"
+rustflags = [
+  "-C", "link-arg=-Tdefmt.x",
+  "-C", "link-arg=-Tlink.x",
+]
+
+[env]
+DEFMT_LOG = "trace"
