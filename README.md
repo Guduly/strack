@@ -1,6 +1,6 @@
 # STrack
 
-A bare metal hardware profiler for embedded Rust (Embassy) on ARM Cortex-M. Measures real-time CPU cycle consumption and SRAM stack usage directly from hardware registers — no OS, no external tools, no overhead.
+A bare metal hardware profiler for embedded Rust (Embassy) on ARM Cortex-M. Measures real-time CPU cycle consumption and SRAM stack usage directly from hardware registers.
 
 Built and tested on the STM32F446RE (Nucleo-F446RE).
 
@@ -49,9 +49,3 @@ Portable to any STM32 Cortex-M4 target with minor changes to `SRAM_TOP` and `mem
 - [ ] Stack high-water mark via stack painting
 - [ ] Struct-based crate API for drop-in use across projects
 - [ ] Real-time visualization via Python host-side script
-
----
-
-## Background
-
-Built from first principles — every design decision, from wrapping arithmetic for CYCCNT overflow to MSP-based stack measurement, was derived directly from the STM32F446RE reference manual and ARM Cortex-M4 architecture documentation. The goal is to observe what the hardware is actually doing, not what an abstraction layer reports.
